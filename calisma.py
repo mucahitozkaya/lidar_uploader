@@ -1,7 +1,7 @@
 ##############################################
 ###
 ### Author Mücahit
-### This code developed under mit licanse
+### This code developed under mit license
 ###
 ### Ankageo
 ##############################################

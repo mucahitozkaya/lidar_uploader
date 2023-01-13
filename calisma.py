@@ -1,3 +1,12 @@
+##############################################
+###
+### Author Mücahit
+### This code developed under mit licanse
+###
+### Ankageo
+##############################################
+
+
 import subprocess,glob,os,shutil,sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QFileDialog, QLabel, QProgressBar
@@ -11,16 +20,8 @@ class Pencere(QMainWindow):
         super(Pencere, self).__init__()      
         
                                                        
-        uic.loadUi('C:/Users/hp/Desktop/python/lidar_uploader/continue/lidar_uploader.ui', self)            
+        uic.loadUi('lidar_uploader.ui', self)            
         
-        
-        self.select_button = self.findChild(QPushButton,"select_button")
-        self.selected_file = self.findChild(QLabel,"label_12")
-        self.information_text = self.findChild(QLabel, "label_13")
-        self.cancel_button = self.findChild(QPushButton,"cancel_button")
-        self.run_button = self.findChild(QPushButton,"run_button")
-        self.progressBar = self.findChild(QProgressBar, "progressBar")
-
         
         self.select_button.clicked.connect(self.clicker)
         self.cancel_button.clicked.connect(QCoreApplication.instance().quit)

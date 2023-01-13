@@ -1,0 +1,33 @@
+{
+    "pipeline": [
+        {
+            "type":"readers.las",
+            "filename":"mfss",
+            "spatialreference": "EPSG: label7"
+        },
+        {
+            "type":"filters.reprojection",
+            "in_srs":"EPSG: label7",
+            "out_srs":"EPSG: label8"
+        },
+        {
+            "type":"filters.chipper",
+            "capacity":"15000"
+        },
+        {
+            "type":"writers.pgpointcloud",
+            "connection":"host='label1' dbname='label3' port='label2' user='label4' password='label5'",
+            "table": "label6",
+            "compression": "dimensional",
+            "srid": "4326",
+            "scale_x": "0.0000001",
+            "scale_y": "0.0000001",
+            "scale_z": "0.01",
+            "offset_x": "auto",
+            "offset_y": "auto",
+            "offset_z": "auto",
+            "output_dims": "x,y,z,intensity",
+            "post_sql": "UPDATE label6 SET filename = 'mfss' WHERE filename is NULL;"
+        }
+    ]
+}

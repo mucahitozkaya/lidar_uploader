@@ -13,7 +13,6 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QFileDialog,
 from PyQt5.QtCore import QCoreApplication
 import psycopg2
 from psycopg2 import OperationalError
-from re import search
 
 class Pencere(QMainWindow):
     def __init__(self):
@@ -110,10 +109,10 @@ class Pencere(QMainWindow):
         except OperationalError as err:
             er = str(err)
             
-            if search("database",er):
+            if "database" in er:
                 self.information_text.setText("Database Name Wrong")
 
-            elif search("password",er):
+            elif "password" in er:
                 self.information_text.setText("User Name or Password Wrong")
                 
             else:
